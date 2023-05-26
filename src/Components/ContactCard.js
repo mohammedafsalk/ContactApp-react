@@ -1,12 +1,11 @@
 import React from "react";
 
-const ContactCard = (props) => {
-  const { id, name, email } = props.users;
+const ContactCard = ({users}) => {
   return (
     <div className="item">
       <div className="content">
-        <div className="header">{name}</div>
-        <div>{email}</div>
+        <div className="header">{users.name}</div>
+        <div>{users.email}</div>
       </div>
       <i
         className="trash alternate outline icon"

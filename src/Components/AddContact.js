@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../src/App.css";
 
-function AddContact() {
+function AddContact({ handler }) {
   const [value, setValue] = useState({
     name: "",
     email: "",
@@ -16,7 +16,11 @@ function AddContact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(value);
+    handler(value);
+    setValue({
+      name: "",
+      email: "",
+    });
   };
 
   return (
