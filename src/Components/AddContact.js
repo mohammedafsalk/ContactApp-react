@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "../../src/App.css";
+import { useNavigate } from "react-router-dom";
 
 function AddContact({ handler }) {
+  const navigate = useNavigate();
   const [value, setValue] = useState({
     name: "",
     email: "",
@@ -16,11 +18,13 @@ function AddContact({ handler }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handler(value);
+    handler({ ...value, id: Date.now() });
     setValue({
       name: "",
       email: "",
     });
+    console.log(value);
+    navigate("/");
   };
 
   return (
